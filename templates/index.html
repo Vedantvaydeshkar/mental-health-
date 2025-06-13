@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health Chatbot</title>
+  <!-- Correctly load CSS via Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <div class="bot-icon">B</div>
+        <span class="bot-name">Mental Health Chatbot</span>
+      </div>
+      
+      <div class="conversations-section">
+        <div class="conversations-header">
+          <h3>Conversations</h3>
+          <button class="new-chat-btn" onclick="createNewChat()">📝</button>
+        </div>
+        
+        <div class="conversation-list">
+          <div class="conversation-group">
+            <div class="date-header">Today</div>
+            <div class="conversation-item active" onclick="selectConversation(this)">
+              <span class="conversation-title">New Chat (1)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-footer">
+        <button class="share-btn">Share 🔗</button>
+      </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="chat-area">
+      <div class="chat-header">
+        <div class="date-indicator">Today</div>
+      </div>
+      
+      <div id="chatbox" class="chatbox">
+        <!-- Chat messages will be inserted here -->
+      </div>
+      
+      <div class="input-container">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button class="send-btn" onclick="sendMessage()">🎤</button>
+      </div>
+      
+      <div class="footer-text">
+       @ by VED
+      </div>
+    </div>
+  </div>
+
+  <!-- Load JS at the end for better performance -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
